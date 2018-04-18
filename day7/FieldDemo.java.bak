@@ -1,0 +1,23 @@
+public class FieldDemo {
+	public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, SecurityException {
+		//获取Class对象
+		Class c = Class.forName("aa.bb.Person");
+		
+		//获取成员变量
+		//多个变量
+		//Field[] fields = c.getFields();
+		Field[] fields =  c.getDeclaredFields();
+		for (Field field : fields) {
+			System.out.println(field);
+		}
+		System.out.println("-----------------");
+		//一个变量
+		//public int age;
+		Field ageField = c.getField("age");
+		System.out.println(ageField);
+		
+		//private String address
+		Field addressField = c.getDeclaredField("address");
+		System.out.println(addressField);
+	}
+}
